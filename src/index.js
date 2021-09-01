@@ -13,13 +13,10 @@ import {
   SphereGeometry,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { createGlowMesh } from "three-glow-mesh";
 import countries from "./files/globe-data-min.json";
-import travelHistory from "./files/my-flights.json";
-import airportHistory from "./files/my-airports.json";
+import arcsData from "./files/arcs.json";
+import pointsData from "./files/points.json";
 var renderer, camera, scene, controls;
-let mouseX = 0;
-let mouseY = 0;
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 var Globe;
@@ -37,10 +34,12 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   // renderer.outputEncoding = THREE.sRGBEncoding;
   document.body.appendChild(renderer.domElement);
+  const canvas = renderer.domElement;
 
   // Initialize scene, light
   scene = new Scene();
   scene.add(new AmbientLight(0xbbbbbb, 0.3));
+  // scene.add(new AmbientLight(0xff9900, 0.3));
   scene.background = new Color(0x040d21);
 
   // Initialize camera, light
@@ -53,10 +52,12 @@ function init() {
   camera.add(dLight);
 
   var dLight1 = new DirectionalLight(0x7982f6, 1);
+  // var dLight1 = new DirectionalLight(0xff9900, 1);
   dLight1.position.set(-200, 500, 200);
   camera.add(dLight1);
 
   var dLight2 = new PointLight(0x8566cc, 0.5);
+  // var dLight2 = new PointLight(0xff9900, 0.5);
   dLight2.position.set(-200, 500, 200);
   camera.add(dLight2);
 
@@ -67,7 +68,8 @@ function init() {
   scene.add(camera);
 
   // Additional effects
-  scene.fog = new Fog(0x535ef3, 400, 2000);
+  // scene.fog = new Fog(0x535ef3, 400, 2000);
+  scene.fog = new Fog(0xff9900, 400, 2000);
 
   // Helpers
   // const axesHelper = new AxesHelper(800);
@@ -82,17 +84,20 @@ function init() {
   controls.enableDamping = true;
   controls.dynamicDampingFactor = 0.01;
   controls.enablePan = false;
-  controls.minDistance = 200;
-  controls.maxDistance = 500;
+  controls.minDistance = 300;
+  controls.maxDistance = 300;
   controls.rotateSpeed = 0.8;
-  controls.zoomSpeed = 1;
-  controls.autoRotate = false;
+  // controls.zoomSpeed = 1;
+  controls.autoRotate = true;
 
   controls.minPolarAngle = Math.PI / 3.5;
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
 
   window.addEventListener("resize", onWindowResize, false);
-  document.addEventListener("mousemove", onMouseMove);
+  canvas.addEventListener("mousedown", () => (controls.autoRotate = false));
+  canvas.addEventListener("touchstart", () => (controls.autoRotate = false));
+  canvas.addEventListener("mouseup", () => (controls.autoRotate = true));
+  canvas.addEventListener("touchend", () => (controls.autoRotate = true));
 }
 
 // SECTION Globe
@@ -100,81 +105,41 @@ function initGlobe() {
   // Initialize the Globe
   Globe = new ThreeGlobe()
     // .globeImageUrl(EarthDarkSkin)
-    .arcsData(travelHistory.flights)
-    .arcColor((e) => {
-      return e.status ? "#9cff00" : "#FF4000";
-    })
-    .arcAltitude((e) => {
-      return e.arcAlt;
-    })
-    .arcStroke((e) => {
-      return e.status ? 0.5 : 0.3;
+    .arcsData(arcsData)
+    .arcColor(e => "#ff9900")
+    // .arcColor(e => "#f6a0fa")
+    .arcStroke(e => {
+      return 0.5;
     })
     .arcDashLength(0.9)
     .arcDashGap(4)
     .arcDashAnimateTime(1000)
     .arcsTransitionDuration(1000)
-    .arcDashInitialGap((e) => e.order * 1)
-    .labelsData(airportHistory.airports)
-    .labelColor(() => "#ffcb21")
-    .labelDotOrientation((e) => {
-      return e.text === "ALA" ? "top" : "right";
-    })
-    .labelDotRadius(0.3)
-    .labelSize((e) => e.size)
-    .labelText("city")
-    .labelResolution(6)
-    .labelAltitude(0.01)
-    .pointsData(airportHistory.airports)
-    .pointColor(() => "#ffffff")
+    .arcDashInitialGap(e => e.order)
+    .pointsData(pointsData)
+    // .pointColor(() => "rgb(120,90,223)")
+    .pointColor(() => "#4f74fa")
+    // .pointColor(() => "#ffe3bd")
     .pointsMerge(true)
-    .pointAltitude(0.07)
+    .pointAltitude(0.04)
     .pointRadius(0.05)
     .hexPolygonsData(countries.features)
     .hexPolygonResolution(3)
     .hexPolygonMargin(0.7)
-    .showAtmosphere(false)
-    .hexPolygonColor((e) => {
-      if (
-        ["KGZ", "KOR", "THA", "RUS", "UZB", "IDN", "KAZ", "MYS"].includes(
-          e.properties.ISO_A3
-        )
-      ) {
-        return "rgba(255,255,255, 1)";
-      } else return "rgba(255,255,255, 0.7)";
+    .showAtmosphere(true)
+    // .atmosphereColor("purple")
+    .atmosphereColor("orange")
+    .hexPolygonColor(e => {
+      return "rgba(255,255,255, 0.7)";
     });
-
-  Globe.rotateY(-Math.PI * (5 / 9));
-  Globe.rotateZ(-Math.PI / 6);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color(0x3a228a);
+  // globeMaterial.color = new Color(0xff9900);
   globeMaterial.emissive = new Color(0x220038);
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 0.7;
-  // NOTE Cool stuff
-  // globeMaterial.wireframe = true;
 
-  // Initialize the glow
-  var options = {
-    backside: true,
-    color: "#3a228a",
-    size: 100 * 0.25,
-    power: 6,
-    coefficient: 0.3,
-  };
-  try {
-    var glowMesh = createGlowMesh(new SphereGeometry(100, 75, 75), options);
-    Globe.add(glowMesh);
-  } catch (err) {
-    console.log("Your threeJS version does not support three-glow-mesh");
-  }
   scene.add(Globe);
-}
-
-function onMouseMove(event) {
-  mouseX = event.clientX - windowHalfX;
-  mouseY = event.clientY - windowHalfY;
-  // console.log("x: " + mouseX + " y: " + mouseY);
 }
 
 function onWindowResize() {
@@ -186,11 +151,6 @@ function onWindowResize() {
 }
 
 function animate() {
-  camera.position.x +=
-    Math.abs(mouseX) <= windowHalfX / 2
-      ? (mouseX / 2 - camera.position.x) * 0.005
-      : 0;
-  camera.position.y += (-mouseY / 2 - camera.position.y) * 0.005;
   camera.lookAt(scene.position);
   controls.update();
   renderer.render(scene, camera);

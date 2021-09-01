@@ -1,7 +1,7 @@
 {
   "name": "pandemic-globe",
   "version": "0.0.2",
-  "description": "Pandemic information projected on a globe map",
+  "description": "rotating data globe",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,18 +9,12 @@
     "build-dev": "webpack --config=webpack.dev.js",
     "start": "webpack serve webpack-dev-server --open --config=webpack.dev.js"
   },
-  "keywords": [
-    "pandemic",
-    "covid",
-    "3d",
-    "threejs"
-  ],
+  "keywords": [],
   "author": "Zhanarbek Osmonaliev",
   "license": "ISC",
   "dependencies": {
     "three": "^0.128.0",
-    "three-globe": "^2.18.8",
-    "three-glow-mesh": "^0.1.2"
+    "three-globe": "^2.18.8"
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
