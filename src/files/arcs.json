@@ -1,135 +1,135 @@
 [
     {
         "order": 1,
-        "startLat": 69.3558495,
-        "startLng": 30.412498,
-        "endLat": 35.050915,
-        "endLng": 31.389376
+        "startLat": 42,
+        "startLng": 43.5,
+        "endLat": 4.5,
+        "endLng": 114.6667
     },
     {
         "order": 1.5,
-        "startLat": 16.523726,
-        "startLng": 44.491871,
-        "endLat": 71.211111,
-        "endLng": 38.849192
+        "startLat": 29.3375,
+        "startLng": 47.6581,
+        "endLat": -26.5,
+        "endLng": 31.5
     },
     {
         "order": 2,
-        "startLat": 96.7416195,
-        "startLng": 19.1344525,
-        "endLat": -7.957829500000001,
-        "endLng": 39.559369
+        "startLat": 49.75,
+        "startLng": 6.1667,
+        "endLat": 17.3333,
+        "endLng": -62.75
     },
     {
         "order": 2.5,
-        "startLat": 23.822039500000002,
-        "startLng": 55.139115000000004,
-        "endLat": 96.7416195,
-        "endLng": 19.1344525
+        "startLat": 7,
+        "startLng": 81,
+        "endLat": 25,
+        "endLng": 17
     },
     {
         "order": 3,
-        "startLat": 104.9813235,
-        "startLng": 12.528564,
-        "endLat": -119.37788549999999,
-        "endLng": 45.136977
+        "startLat": 43.7667,
+        "startLng": 12.4167,
+        "endLat": 64,
+        "endLng": 26
     },
     {
         "order": 3.5,
-        "startLat": -71.30215749999999,
-        "startLng": -36.595921,
-        "endLat": -88.6679675,
-        "endLng": 17.19346
+        "startLat": -43,
+        "startLng": 67,
+        "endLat": 2.5,
+        "endLng": 112.5
     },
     {
         "order": 4,
-        "startLat": -55.8183315,
-        "startLng": -32.5311665,
-        "endLat": 80.741563,
-        "endLng": 7.896224
+        "startLat": 16,
+        "startLng": 106,
+        "endLat": 32,
+        "endLng": 35.25
     },
     {
         "order": 4.5,
-        "startLat": 15.5466275,
-        "startLng": 49.8362865,
-        "endLat": 17.465374,
-        "endLng": 62.233992
+        "startLat": -5,
+        "startLng": 120,
+        "endLat": -14.3333,
+        "endLng": -170
     },
     {
         "order": 5,
-        "startLat": 53.988183,
-        "startLng": 24.276206000000002,
-        "endLat": 121.8558495,
-        "endLng": 12.043115
+        "startLat": 43.7333,
+        "startLng": 7.4,
+        "endLat": -24.7,
+        "endLng": -127.4
     },
     {
         "order": 5.5,
-        "startLat": 35.418670500000005,
-        "startLng": 38.98151,
-        "endLat": -66.41671600000001,
-        "endLng": 18.233577
+        "startLat": -2,
+        "startLng": -77.5,
+        "endLat": -33,
+        "endLng": -56
     },
     {
         "order": 6,
-        "startLat": 15.131459,
-        "startLng": 46.152351,
-        "endLat": 37.874325999999996,
-        "endLng": 0.41461499999999996
+        "startLat": 12,
+        "startLng": -15,
+        "endLat": 40,
+        "endLng": 127
     },
     {
         "order": 6.5,
-        "startLat": 53.988183,
-        "startLng": 24.276206000000002,
-        "endLat": 66.913208,
-        "endLng": 48.0237875
+        "startLat": -0.5333,
+        "startLng": 166.9167,
+        "endLat": 7,
+        "endLng": 21
     },
     {
         "order": 7,
-        "startLat": 28.321998,
-        "startLng": 46.977700999999996,
-        "endLat": -72.93363049999999,
-        "endLng": 4.069558
+        "startLat": 12,
+        "startLng": -15,
+        "endLat": -0.5333,
+        "endLng": 166.9167
     },
     {
         "order": 7.5,
-        "startLat": 0,
-        "startLng": -17.154436,
-        "endLat": -56.001369499999996,
-        "endLng": 3.921479
+        "startLat": 40,
+        "startLng": 60,
+        "endLat": 10,
+        "endLng": 8
     },
     {
         "order": 8,
-        "startLat": 47.4924035,
-        "startLng": 29.2925665,
-        "endLat": -8.0050355,
-        "endLng": 53.4004615
+        "startLat": 19,
+        "startLng": -72.4167,
+        "endLat": 11.5,
+        "endLng": 43
     },
     {
         "order": 8.5,
-        "startLat": -10.99338,
-        "startLng": 21.006289000000002,
-        "endLat": 10.295345999999999,
-        "endLng": 1.6469930000000002
+        "startLat": 34,
+        "startLng": 9,
+        "endLat": 46,
+        "endLng": 15
     },
     {
         "order": 9,
-        "startLat": 47.856723,
-        "startLng": 15.7929765,
-        "endLat": -3.95027,
-        "endLng": 17.5354675
+        "startLat": 31,
+        "startLng": 36,
+        "endLat": 2.5,
+        "endLng": 112.5
     },
     {
         "order": 9.5,
-        "startLat": 24.9233675,
-        "startLng": 45.954663,
-        "endLat": 90.45898,
-        "endLng": 27.507921
+        "startLat": -54.4333,
+        "startLng": 3.4,
+        "endLat": 13.8833,
+        "endLng": -61.1333
     },
     {
         "order": 10,
-        "startLat": -22.482369000000002,
-        "startLng": 26.6009475,
-        "endLat": 137.4758,
-        "endLng": 38.290531
+        "startLat": 46,
+        "startLng": 25,
+        "endLat": -23,
+        "endLng": -58
     }
 ]
