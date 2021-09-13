@@ -29,7 +29,7 @@ animate();
 // SECTION Initializing core ThreeJS elements
 function init() {
   // Initialize renderer
-  renderer = new WebGLRenderer({ antialias: true });
+  renderer = new WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   // renderer.outputEncoding = THREE.sRGBEncoding;
@@ -40,7 +40,7 @@ function init() {
   scene = new Scene();
   scene.add(new AmbientLight(0xbbbbbb, 0.3));
   // scene.add(new AmbientLight(0xff9900, 0.3));
-  scene.background = new Color(0x040d21);
+//   scene.background = new Color(0x040d21);
 
   // Initialize camera, light
   camera = new PerspectiveCamera();
